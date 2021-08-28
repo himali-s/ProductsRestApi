@@ -1,46 +1,42 @@
 package com.example.CentricSoftware.Data;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Entity
 public class Product {
-    private @Id @GeneratedValue Long id;
+    private @Id
+    @GeneratedValue
+    Long id;
     private String name;
-    Date date = new Date(System.currentTimeMillis());
     private String description;
     private String brand;
-//    private List<String> tags;
     @ElementCollection
     private List<String> tags = new ArrayList<String>();
     private String category;
-    Product(){
+    Date createdAt;
 
+    Product() {
+
+    }
+
+    public Product(String name, String description, String brand, List<String> tags, String category) {
+        this.name = name;
+        this.description = description;
+        this.brand = brand;
+        this.tags = tags;
+        this.category = category;
+        this.createdAt = new Date(System.currentTimeMillis());
     }
 
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "{id=" + id + ", name='" + name + ",description='"+description+ ",brand='"+brand+ ",category='"+category+ "'}";
     }
-
-    Product(String name, String description, List<String> tags){
-        this.name = name;
-        this.description = description;
-        this.tags = tags;
-    }
-//    Product(String name, String description, String category){
-//        this.name = name;
-//        this.description = description;
-//        this.category = category;
-//
-//    }
 
     public Long getId() {
         return id;
@@ -90,20 +86,18 @@ public class Product {
     public void setTags(List<String> tags) {
         this.tags = tags;
     }
-    public String getDate() {
-        SimpleDateFormat sdf;
-        sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
-        sdf.setTimeZone(TimeZone.getTimeZone("CET"));
-        String text = sdf.format(date);
 
+    public String getCreatedAt() {
+        SimpleDateFormat sdf;
+        sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        String text = sdf.format(this.createdAt);
         return text;
     }
 
-//    public void setDate(Date date) {
-//        this.date = date;
-//    }
-
-
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
     @Override
     public boolean equals(Object o) {
