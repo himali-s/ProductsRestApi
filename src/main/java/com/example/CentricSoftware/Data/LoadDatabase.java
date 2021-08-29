@@ -6,8 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+
 
 @Configuration
 public class LoadDatabase {
@@ -15,22 +15,19 @@ public class LoadDatabase {
 
     @Bean
     CommandLineRunner initDatabase(ProductRepository repository) {
-        List<String> tags = new ArrayList<String>();
-        tags.add("red");
-        tags.add("slim");
 
         return args -> {
-            log.info("Preloading " + repository.save(new Product("White Shirt", "Red hugo boss shirt", "Gucci", tags, "apperal")));
+            log.info("Preloading " + repository.save(new Product("White Shirt", "White Gucci shirt", "Gucci", Arrays.asList("white, shirt,men"), "apperal")));
             Thread.sleep(1000);
-            log.info("Preloading " + repository.save(new Product("Red Shirt", "White hugo boss shirt", "LV", tags, "jewellary")));
+            log.info("Preloading " + repository.save(new Product("Red Shirt", "Red hugo boss shirt", "Hugo Boss", Arrays.asList("red","shirt","slim fit"), "apperal")));
             Thread.sleep(1000);
-            log.info("Preloading " + repository.save(new Product("Tshirt", "Tshirt for women", "LV", tags, "apperal")));
+            log.info("Preloading " + repository.save(new Product("Black Pant", "Pants for women", "LV", Arrays.asList("black,","pants","women"), "apperal")));
             Thread.sleep(1000);
-            log.info("Preloading " + repository.save(new Product("Earrings", "Gold earrings", "Zara", tags, "jewellary")));
+            log.info("Preloading " + repository.save(new Product("Earrings", "Gold earrings", "Zara", Arrays.asList("earrings","gold"), "jewellary")));
             Thread.sleep(1000);
-            log.info("Preloading " + repository.save(new Product("Pants", "Jeans Pants", "Levis", tags, "apperal")));
+            log.info("Preloading " + repository.save(new Product("Diamond Ring", "Diamond ring", "Gucci", Arrays.asList("diamond","fingerRing"), "jewellary")));
             Thread.sleep(1000);
-            log.info("Preloading " + repository.save(new Product("necklace", "Gold Necklace", "Macys", tags, "jewellary")));
+            log.info("Preloading " + repository.save(new Product("Necklace", "Gold Necklace", "Macys", Arrays.asList("gold","necklace"), "jewellary")));
         };
     }
 }

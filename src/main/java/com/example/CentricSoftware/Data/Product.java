@@ -11,7 +11,7 @@ import java.util.*;
 public class Product {
     private @Id
     @GeneratedValue
-    Long id;
+    UUID id;
     private String name;
     private String description;
     private String brand;
@@ -38,11 +38,11 @@ public class Product {
         return "{id=" + id + ", name='" + name + ",description='"+description+ ",brand='"+brand+ ",category='"+category+ "'}";
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

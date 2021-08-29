@@ -1,8 +1,10 @@
 package com.example.CentricSoftware.Controller;
 
+import java.util.UUID;
+
 public class ProductNotFoundException extends RuntimeException {
 
-    ProductNotFoundException(Long id) {
-        super("Could not find employee " + id);
+    ProductNotFoundException(UUID id) {
+        super("Could not find product " + id);
     }
 }
