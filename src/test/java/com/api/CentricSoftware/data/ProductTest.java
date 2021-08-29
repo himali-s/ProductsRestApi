@@ -1,10 +1,9 @@
-package com.example.CentricSoftware.Data;
+package com.api.CentricSoftware.data;
 
 import org.junit.jupiter.api.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Calendar;
 import java.util.TimeZone;
 
 import static org.junit.jupiter.api.Assertions.*;

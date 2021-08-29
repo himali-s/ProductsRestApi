@@ -1,4 +1,4 @@
-package com.example.CentricSoftware.Data;
+package com.api.CentricSoftware.data;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

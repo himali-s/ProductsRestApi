@@ -1,4 +1,4 @@
-package com.example.CentricSoftware.Controller;
+package com.api.CentricSoftware.controller;
 
 import java.util.UUID;
 

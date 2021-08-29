@@ -1,4 +1,4 @@
-package com.example.CentricSoftware.tests;
+package com.api.CentricSoftware.tests;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

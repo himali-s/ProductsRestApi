@@ -1,4 +1,4 @@
-package com.example.CentricSoftware.Data;
+package com.api.CentricSoftware.data;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;

@@ -1,8 +1,7 @@
-package com.example.CentricSoftware.Controller;
+package com.api.CentricSoftware.controller;
 
-import com.example.CentricSoftware.Data.Product;
-import com.example.CentricSoftware.Data.ProductRepository;
-import com.example.CentricSoftware.Service.ProductService;
+import com.api.CentricSoftware.data.Product;
+import com.api.CentricSoftware.data.ProductRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +18,6 @@ import java.util.UUID;
 @RestController
 public class ProductController {
     private final ProductRepository productRepository;
-    private ProductService productService;
 
     ProductController(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -28,7 +26,7 @@ public class ProductController {
     public ResponseEntity<Map<String, Object>> getAllProducts(
             @RequestParam(required = false) String category,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "5") int size
+            @RequestParam(defaultValue = "3") int size
     ) {
         try {
             List<Product> products;
@@ -59,7 +57,7 @@ public class ProductController {
         return productRepository.findByUuid(id);
     }
 
-    @PostMapping("/products")
+    @PostMapping("/v1/products")
     Product newProduct(@RequestBody Product newProduct) {
         return productRepository.save(newProduct);
     }

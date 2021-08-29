@@ -1,4 +1,4 @@
-package com.example.CentricSoftware;
+package com.api.CentricSoftware;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
