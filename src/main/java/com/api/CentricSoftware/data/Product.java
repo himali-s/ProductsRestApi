@@ -18,7 +18,7 @@ public class Product {
     @ElementCollection
     private List<String> tags = new ArrayList<String>();
     private String category;
-    Date createdAt;
+    Date createdAt = new Date(System.currentTimeMillis());
 
     Product() {
 
